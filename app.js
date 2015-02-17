@@ -1,6 +1,5 @@
 window.imgSrc = null;
 
-
 function textListener (event) {
     var id = event.srcElement.id;
     var text = event.srcElement.value;
@@ -43,7 +42,25 @@ function drawMeme(image, topText, bottomText){
 }
 
 function fileSelect(event){
-    console.log(event);
+    var file = event.target.files[0];
+
+    var reader = new FileReader();
+    reader.onload = function(fileObject){
+        console.log(arguments);
+        var data = fileObject.target.result;
+
+        var img = new Image();
+        img.onload = function(){
+           window.imgSrc = this;
+            drawMeme(window.imgSrc, null, null)
+        };
+        img.src = data;
+    };
+    reader.readAsDataURL(file);
+}
+
+function saveImage (){
+    window.open(document.querySelector('canvas').toDataURL());
 }
 
 window.topText ="";
@@ -54,3 +71,4 @@ input1.oninput = textListener;
 input2.oninput = textListener;
 
 document.getElementById('file').addEventListener('change',fileSelect,false);
+document.getElementById('save').addEventListener('click', saveImage, false);
