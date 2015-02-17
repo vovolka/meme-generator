@@ -12,7 +12,7 @@ function textListener (event) {
     }
     drawMeme(window.imgSrc, window.topText, window.bottomText);
 }
-//
+
 function drawMeme(image, topText, bottomText){
     var canvas = document.querySelector('canvas');
     var ctx = canvas.getContext("2d");
