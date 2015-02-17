@@ -16,8 +16,8 @@ function textListener (event) {
 function drawMeme(image, topText, bottomText){
     var canvas = document.querySelector('canvas');
     var ctx = canvas.getContext("2d");
-    canvas.width = 500;
-    canvas.height = 500;
+    canvas.width = 480;
+    canvas.height = 480;
 
     if(image !=null){
         ctx.drawImage(image,0,0, canvas.width, canvas.height);
@@ -31,8 +31,8 @@ function drawMeme(image, topText, bottomText){
 
     //topLine
     if(topText !=null){
-        ctx.fillText(topText, canvas.width/2,canvas.height -450);
-        ctx.strokeText(topText, canvas.width/2,canvas.height -450);
+        ctx.fillText(topText, canvas.width/2,canvas.height -400);
+        ctx.strokeText(topText, canvas.width/2,canvas.height -400);
     }
     //bottomLine
     if(bottomText !=null){
